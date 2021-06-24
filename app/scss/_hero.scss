@@ -1,0 +1,100 @@
+.hero{
+    background-color:$veryLightGray;
+
+    .container{
+        @include breakpoint-up(large){
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+    &::before, &::after{
+
+    }
+    
+    &__image{
+        
+        position: relative;
+        background-image: url(/app/images/bg-intro-mobile.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+
+        @include breakpoint-up(large){
+            flex: 3;
+            order:2;
+            min-height: 41rem;
+            background-image: none;
+         // background-image: url(/app/images/bg-intro-desktop.png);
+           // background-position: left center;
+        }
+        
+        &::before{
+          
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            //background-image: url('/app/images/bg-intro-desktop.png');
+            background-size: 93%;
+            background-repeat: no-repeat;
+            background-position: 120% 40%;
+
+            @include breakpoint-up(large){
+                background-image: url('/app/images/bg-intro-desktop.png');
+                width: 140%;
+                height: 100%;
+                background-size: 110%;
+                background-position: 40% 5%;
+            }
+        }
+
+        &::after{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: url('/app/images/phooen.png');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+
+            @include breakpoint-up(large){
+                width: 140%;
+                height: 100%;
+                background-size: 72%;
+                background-repeat: no-repeat;
+                background-position: center 100%;
+            }
+        }
+    }
+
+    &__text{
+        text-align: center;
+
+        @include breakpoint-up(large){
+            flex: 2;
+            order:1;
+            text-align: left;
+        }
+
+        h1{
+            font-weight: 300;
+            font-size: 2.31rem;
+            line-height: 1.15;
+            color: $darkBlue;
+            margin-bottom: 1.5rem;
+
+            @include breakpoint-up(large){
+                font-size: $font-xlg;
+            }
+        }
+
+        p{
+            line-height: 1.5;
+            margin-bottom: 2.5rem;
+        }
+    }
+}
